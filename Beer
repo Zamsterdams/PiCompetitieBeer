@@ -1,0 +1,27 @@
+import os
+geluid1 = 'ElevenLabs_2024-03-13T10_13_27_Rachel_pre_s33_sb75_se0_b_m2'
+geluid2 = 'ElevenLabs_2024-03-13T10_15_58_Rachel_pre_s33_sb75_se0_b_m2'
+
+alleGangen = {'1', '2', '3'}
+alleKamers = {'1', '2', '3', '4', '5'}
+kamer = '0'
+
+def vraagKamer():
+    global kamer
+    kamer = input ('In welke kamer zit de patiënt?').capitalize().strip(' .')
+
+gang = input ('In welke gang zit de patiënt?').capitalize().strip(' .')
+
+if gang in alleGangen:
+    vraagKamer()
+    if kamer in alleKamers:
+        print ('Start programma gang '+gang+', kamer '+kamer+'.')
+        if kamer >= '3':
+            os.system('mpg123 ' + geluid1)
+        else:
+            os.system('mpg123 ' + geluid2)
+        exit()
+    else:
+        print ('Kamer '+kamer+'op gang '+gang+' is niet gevonden')
+else:
+    print ('Gang '+gang+' is niet gevonden.')
